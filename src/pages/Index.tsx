@@ -24,7 +24,6 @@ const Index = () => {
             <span className="italic text-primary">Direkt aus den Gärten Hochkamps.</span>
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
-            {PLACEHOLDER_TEXT.slice(0, 220)}
           </p>
           <div className="mt-8">
             <Button asChild variant="honey" size="xl">
@@ -61,7 +60,7 @@ const Index = () => {
                   {["Aus der Region.", "Mit Sorgfalt geerntet.", "Naturbelassen genießen."][i]}
                 </h2>
                 <p className="mt-5 text-muted-foreground leading-relaxed">
-                  {PLACEHOLDER_TEXT}
+                  {i === 0 ? AUS_DER_REGION_TEXT : ""}
                 </p>
               </div>
             </div>
@@ -76,7 +75,7 @@ const Index = () => {
             Ein Glas, eine <span className="italic text-primary">Geschichte.</span>
           </h2>
           <p className="mt-4 text-forest-foreground/70 max-w-xl mx-auto">
-            {PLACEHOLDER_TEXT.slice(0, 160)}
+          
           </p>
           <Button asChild variant="honey" size="xl" className="mt-8">
             <Link to="/unser-honig">Jetzt kaufen →</Link>
