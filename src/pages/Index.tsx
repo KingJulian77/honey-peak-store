@@ -76,7 +76,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl text-forest-foreground">
             Ein Glas, eine <span className="italic text-primary">Geschichte.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+          <p className="mt-4 text-forest-foreground/70 max-w-xl mx-auto">
             {PLACEHOLDER_TEXT.slice(0, 160)}
           </p>
           <Button asChild variant="honey" size="xl" className="mt-8">
