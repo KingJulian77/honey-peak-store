@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      inventory: {
+        Row: {
+          id: string
+          product_name: string
+          stock: number
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          product_name?: string
+          stock?: number
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          product_name?: string
+          stock?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           email: string
@@ -83,6 +104,24 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
         }
         Relationships: []
       }
