@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-32 border-t border-border bg-secondary/40">
+    <footer className="mt-32 border-t border-forest/30 bg-forest/5">
       <div className="container-narrow py-16 grid gap-12 md:grid-cols-3">
         <div className="md:col-span-2">
           <h3 className="text-2xl md:text-3xl mb-3">Bleib auf dem Laufenden</h3>

@@ -55,7 +55,7 @@ const Index = () => {
                 <Placeholder />
               </div>
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
+                <span className="text-xs uppercase tracking-[0.25em] text-forest font-medium">
                   Kapitel 0{i + 1}
                 </span>
                 <h2 className="mt-3 text-3xl md:text-4xl">
