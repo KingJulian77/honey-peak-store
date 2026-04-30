@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 
-const TXT = "ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC.";
+const TXT = "ABC.";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="py-6 border-b border-border last:border-0">
