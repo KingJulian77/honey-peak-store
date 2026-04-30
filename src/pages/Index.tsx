@@ -4,15 +4,17 @@ import Placeholder from "@/components/Placeholder";
 import { Button } from "@/components/ui/button";
 
 const PLACEHOLDER_TEXT =
-  "ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC.";
+  "ABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCC.";
+
+const HERO_IMAGE = "https://atdoofvtgsjahixpqtzn.supabase.co/storage/v1/object/public/bilder-startseite/PHOTO-2026-04-30-16-11-08.jpg";
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero */}
       <section className="container-narrow grid gap-12 md:grid-cols-2 md:gap-16 items-center py-12 md:py-20">
-        <div className="aspect-[4/5] animate-fade-up">
-          <Placeholder />
+        <div className="aspect-[4/5] animate-fade-up rounded-2xl overflow-hidden">
+          <img src={HERO_IMAGE} alt="Honig aus Hochkamp" className="w-full h-full object-cover" />
         </div>
         <div className="animate-fade-up [animation-delay:120ms]">
           <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
@@ -20,7 +22,7 @@ const Index = () => {
           </span>
           <h1 className="mt-4 text-4xl md:text-6xl leading-[1.05] text-foreground">
             Reiner Honig.<br />
-            <span className="italic text-primary">Direkt von der Imkerei.</span>
+            <span className="italic text-primary">Direkt aus den Gärten Hochkamps.</span>
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
             {PLACEHOLDER_TEXT.slice(0, 220)}
