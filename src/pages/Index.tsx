@@ -16,7 +16,7 @@ const Index = () => {
         </div>
         <div className="animate-fade-up [animation-delay:120ms]">
           <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
-            Imkerei Goldwiese
+            Honig aus Hochkamp
           </span>
           <h1 className="mt-4 text-4xl md:text-6xl leading-[1.05] text-foreground">
             Reiner Honig.<br />

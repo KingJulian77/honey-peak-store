@@ -30,8 +30,8 @@ const Kontakt = () => {
         <div className="grid gap-12 md:grid-cols-2">
           <div className="space-y-6">
             {[
-              { Icon: MapPin, label: "Adresse", text: "Goldwiesenweg 7, 12345 Honigtal" },
-              { Icon: Mail, label: "E-Mail", text: "hallo@goldwiese.de" },
+              { Icon: MapPin, label: "Adresse", text: "Hochkamper Weg 7, 12345 Hochkamp" },
+              { Icon: Mail, label: "E-Mail", text: "hallo@honig-aus-hochkamp.de" },
               { Icon: Phone, label: "Telefon", text: "+49 (0) 123 456 789" },
             ].map(({ Icon, label, text }) => (
               <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-card">
