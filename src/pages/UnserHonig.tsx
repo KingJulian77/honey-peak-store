@@ -80,7 +80,13 @@ const UnserHonig = () => {
             <p className="mt-5 text-muted-foreground leading-relaxed">{TXT}</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">{TXT.slice(0, 140)}</p>
 
-            <div className="mt-8 flex items-center gap-6">
+            {stock !== null && !isSoldOut && (
+              <p className="mt-4 text-sm text-primary font-medium">
+                🍯 Noch {stock} Glas verfügbar
+              </p>
+            )}
+
+            <div className="mt-4 flex items-center gap-6">
               <span className="text-3xl font-serif text-foreground">12,90 €</span>
               {isSoldOut ? (
                 <Button variant="honey" size="xl" disabled className="opacity-60 cursor-not-allowed">
