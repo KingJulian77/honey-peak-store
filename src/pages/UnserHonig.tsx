@@ -25,6 +25,20 @@ const UnserHonig = () => {
       if (data) setStock(data.stock);
     };
     fetchStock();
+
+    const channel = supabase
+      .channel("inventory-realtime")
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "inventory" },
+        (payload) => {
+          const row = payload.new as { product_name: string; stock: number };
+          if (row.product_name === "honig") setStock(row.stock);
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
   }, []);
 
   const isSoldOut = stock !== null && stock <= 0;

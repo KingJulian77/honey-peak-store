@@ -105,6 +105,27 @@ const AdminDashboard = () => {
     }
   }, [user, activeTab]);
 
+  // Realtime stock updates
+  useEffect(() => {
+    if (!user) return;
+    const channel = supabase
+      .channel("admin-inventory-realtime")
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "inventory" },
+        (payload) => {
+          const row = payload.new as { product_name: string; stock: number };
+          if (row.product_name === "honig") {
+            setStock(row.stock);
+            setStockInput(String(row.stock));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, [user]);
+
   const fetchOrders = async () => {
     setOrdersLoading(true);
     const { data } = await supabase
