@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+const LOGO_URL =
+  "https://atdoofvtgsjahixpqtzn.supabase.co/storage/v1/object/public/logo/Unbenanntes_Projekt.jpg";
+
+const Logo = ({ size = 64 }: { size?: number }) => {
   return (
-    <Link to="/" aria-label="Zur Startseite" className="inline-flex">
-      <div
-        className="flex h-12 w-12 items-center justify-center rounded-full text-white font-bold text-sm tracking-widest shadow-card"
-        style={{ backgroundColor: "hsl(var(--placeholder))" }}
-      >
-        !!!
-      </div>
+    <Link to="/" aria-label="Honig aus Hochkamp – Startseite" className="inline-flex">
+      <img
+        src={LOGO_URL}
+        alt="Honig aus Hochkamp Logo"
+        width={size}
+        height={size}
+        className="rounded-full object-cover shadow-card ring-1 ring-border bg-background"
+        style={{ width: size, height: size }}
+      />
     </Link>
   );
 };
