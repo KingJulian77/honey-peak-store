@@ -17,18 +17,21 @@ export type Database = {
       inventory: {
         Row: {
           id: string
+          price: number
           product_name: string
           stock: number
           updated_at: string
         }
         Insert: {
           id?: string
+          price?: number
           product_name?: string
           stock?: number
           updated_at?: string
         }
         Update: {
           id?: string
+          price?: number
           product_name?: string
           stock?: number
           updated_at?: string
@@ -60,9 +63,11 @@ export type Database = {
           id: string
           nachname: string
           plz: string
+          quantity: number
           stadt: string
           status: Database["public"]["Enums"]["order_status"]
           strasse: string
+          total: number
           vorname: string
         }
         Insert: {
@@ -71,9 +76,11 @@ export type Database = {
           id?: string
           nachname: string
           plz: string
+          quantity?: number
           stadt: string
           status?: Database["public"]["Enums"]["order_status"]
           strasse: string
+          total?: number
           vorname: string
         }
         Update: {
@@ -82,9 +89,11 @@ export type Database = {
           id?: string
           nachname?: string
           plz?: string
+          quantity?: number
           stadt?: string
           status?: Database["public"]["Enums"]["order_status"]
           strasse?: string
+          total?: number
           vorname?: string
         }
         Relationships: []
