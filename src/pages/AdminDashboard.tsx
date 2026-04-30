@@ -220,6 +220,8 @@ const AdminDashboard = () => {
                   <TableHead>Datum</TableHead>
                   <TableHead>Name</TableHead>
                   <TableHead>Adresse</TableHead>
+                  <TableHead className="text-center">Menge</TableHead>
+                  <TableHead className="text-right">Betrag</TableHead>
                   <TableHead className="text-right">Status</TableHead>
                   <TableHead className="w-10"></TableHead>
                 </TableRow>
