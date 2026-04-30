@@ -4,25 +4,43 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Info } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Bestellen = () => {
-  const [form, setForm] = useState({ strasse: "", hausnummer: "", plz: "", stadt: "" });
+  const [form, setForm] = useState({ vorname: "", nachname: "", strasse: "", hausnummer: "", plz: "", stadt: "" });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((f) => ({ ...f, [field]: e.target.value }));
     setError("");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.strasse || !form.hausnummer || !form.plz || !form.stadt) {
+    if (!form.vorname || !form.nachname || !form.strasse || !form.hausnummer || !form.plz || !form.stadt) {
       setError("Bitte fülle alle Felder aus.");
       return;
     }
     if (form.stadt.trim().toLowerCase() !== "hamburg") {
       setError("Wir liefern leider nur innerhalb von Hamburg. Bitte gib eine Hamburger Lieferadresse an.");
+      return;
+    }
+
+    setSubmitting(true);
+    const { error: dbError } = await supabase.from("orders").insert({
+      vorname: form.vorname.trim(),
+      nachname: form.nachname.trim(),
+      strasse: form.strasse.trim(),
+      hausnummer: form.hausnummer.trim(),
+      plz: form.plz.trim(),
+      stadt: form.stadt.trim(),
+    });
+
+    setSubmitting(false);
+    if (dbError) {
+      setError("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
       return;
     }
     setSuccess(true);
@@ -50,6 +68,16 @@ const Bestellen = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1.5">Vorname</label>
+              <Input value={form.vorname} onChange={handleChange("vorname")} placeholder="Max" className="rounded-xl" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1.5">Nachname</label>
+              <Input value={form.nachname} onChange={handleChange("nachname")} placeholder="Mustermann" className="rounded-xl" />
+            </div>
+          </div>
           <div>
             <label className="block text-sm font-medium mb-1.5">Straße</label>
             <Input value={form.strasse} onChange={handleChange("strasse")} placeholder="Musterstraße" className="rounded-xl" />
@@ -83,8 +111,8 @@ const Bestellen = () => {
             </Alert>
           )}
 
-          <Button type="submit" variant="honey" size="xl" className="w-full mt-4">
-            Kostenpflichtig bestellen →
+          <Button type="submit" variant="honey" size="xl" className="w-full mt-4" disabled={submitting}>
+            {submitting ? "Wird gesendet..." : "Kostenpflichtig bestellen →"}
           </Button>
         </form>
       </section>
