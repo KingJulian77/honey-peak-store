@@ -1,8 +1,7 @@
 import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 
-const TXT =
-  "Unser Honig wird direkt in Hochkamp von unseren Bienen gesammelt – dabei fliegen sie die Blüten der umliegenden Gärten und Grünflächen an. Das bedeutet, dass in unserem Honig auch Pollen aus Ihrem eigenen Garten enthalten sein könnten – ein kleines Stück Ihrer Nachbarschaft im Glas.";
+const TXT = "ABBCCC.";
 
 const blocks = [
   { title: "Kurze Wege, frischer Honig." },
