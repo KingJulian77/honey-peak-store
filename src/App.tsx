@@ -9,6 +9,8 @@ import WarumRegional from "./pages/WarumRegional.tsx";
 import Kontakt from "./pages/Kontakt.tsx";
 import Impressum from "./pages/Impressum.tsx";
 import Bestellen from "./pages/Bestellen.tsx";
+import AdminLogin from "./pages/AdminLogin.tsx";
+import AdminDashboard from "./pages/AdminDashboard.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/bestellen" element={<Bestellen />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
