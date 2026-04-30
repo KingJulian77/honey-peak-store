@@ -52,6 +52,8 @@ type Order = {
   stadt: string;
   status: string;
   created_at: string;
+  quantity: number;
+  total: number;
 };
 
 type WaitlistEntry = {
