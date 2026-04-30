@@ -67,7 +67,7 @@ const Header = () => {
               <NavLink
                 key={l.to}
                 to={l.to}
-                end={l.end}
+                end={"end" in l ? (l as { end?: boolean }).end : undefined}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(
