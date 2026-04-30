@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 
-const TXT = "ABC.";
+const TXT = "ABBCCC.";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="py-6 border-b border-border last:border-0">
@@ -20,7 +20,7 @@ const Impressum = () => {
 
         <Section title="Angaben gemäß § 5 TMG">
           <p>Honig aus Hochkamp</p>
-          <p>Inhaber: ABCABCABC</p>
+          <p>Inhaber: ABBCCCABB</p>
           <p>Hochkamper Weg 7</p>
           <p>12345 Hochkamp</p>
         </Section>
@@ -35,7 +35,7 @@ const Impressum = () => {
         </Section>
 
         <Section title="Verantwortlich für den Inhalt">
-          <p>ABCABCABC, Hochkamper Weg 7, 12345 Hochkamp</p>
+          <p>ABBCCCABB, Hochkamper Weg 7, 12345 Hochkamp</p>
         </Section>
 
         <Section title="Streitschlichtung">
