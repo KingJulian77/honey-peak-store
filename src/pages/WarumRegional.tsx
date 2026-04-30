@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 
 const TXT =
-  "ABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCC.";
+  "Unser Honig wird direkt in Hochkamp von unseren Bienen gesammelt – dabei fliegen sie die Blüten der umliegenden Gärten und Grünflächen an. Das bedeutet, dass in unserem Honig auch Pollen aus Ihrem eigenen Garten enthalten sein könnten – ein kleines Stück Ihrer Nachbarschaft im Glas.";
 
 const blocks = [
   { title: "Kurze Wege, frischer Honig." },
@@ -16,9 +16,7 @@ const WarumRegional = () => {
     <Layout>
       <section className="container-narrow py-12 md:py-20">
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
-            Unsere Werte
-          </span>
+          <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">Unsere Werte</span>
           <h1 className="mt-4 text-4xl md:text-6xl">
             Warum <span className="italic text-primary">Regional?</span>
           </h1>
@@ -39,9 +37,7 @@ const WarumRegional = () => {
                   <Placeholder />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
-                    0{i + 1} — Grund
-                  </span>
+                  <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">0{i + 1} — Grund</span>
                   <h2 className="mt-3 text-3xl md:text-4xl">{b.title}</h2>
                   <p className="mt-5 text-muted-foreground leading-relaxed">{TXT}</p>
                   <p className="mt-4 text-muted-foreground leading-relaxed">{TXT.slice(0, 120)}</p>
