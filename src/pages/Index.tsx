@@ -71,9 +71,9 @@ const Index = () => {
       </section>
 
       {/* CTA Band */}
-      <section className="mt-24 md:mt-32 bg-secondary/50 border-y border-border">
+      <section className="mt-24 md:mt-32 bg-forest border-y border-forest">
         <div className="container-narrow py-16 md:py-20 text-center">
-          <h2 className="text-3xl md:text-5xl">
+          <h2 className="text-3xl md:text-5xl text-forest-foreground">
             Ein Glas, eine <span className="italic text-primary">Geschichte.</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
