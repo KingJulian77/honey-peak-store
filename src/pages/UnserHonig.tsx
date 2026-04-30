@@ -2,8 +2,7 @@ import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 import { Button } from "@/components/ui/button";
 
-const TXT =
-  "ABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCCABBCCCABBABBCCC.";
+const TXT = "";
 
 const UnserHonig = () => {
   return (
