@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 import { Button } from "@/components/ui/button";
@@ -32,7 +33,7 @@ const UnserHonig = () => {
 
             <div className="mt-8 flex items-center gap-6">
               <span className="text-3xl font-serif text-foreground">12,90 €</span>
-              <Button variant="honey" size="xl">Jetzt kaufen →</Button>
+              <Button variant="honey" size="xl" asChild><Link to="/bestellen">Jetzt kaufen →</Link></Button>
             </div>
           </div>
         </div>
