@@ -3,8 +3,7 @@ import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 import { Button } from "@/components/ui/button";
 
-const PLACEHOLDER_TEXT =
-  "ABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCCABBCCC.";
+const AUS_DER_REGION_TEXT = "Unser Honig wird direkt in Hochkamp von unseren Bienen gesammelt – dabei fliegen sie die Blüten der umliegenden Gärten und Grünflächen an. Das bedeutet, dass in unserem Honig auch Pollen aus Ihrem eigenen Garten enthalten sein könnten – ein kleines Stück Ihrer Nachbarschaft im Glas.";
 
 const HERO_IMAGE = "https://atdoofvtgsjahixpqtzn.supabase.co/storage/v1/object/public/bilder-startseite/PHOTO-2026-04-30-16-11-08.jpg";
 
