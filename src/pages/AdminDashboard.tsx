@@ -52,6 +52,8 @@ type Order = {
   stadt: string;
   status: string;
   created_at: string;
+  quantity: number;
+  total: number;
 };
 
 type WaitlistEntry = {
@@ -220,6 +222,8 @@ const AdminDashboard = () => {
                   <TableHead>Datum</TableHead>
                   <TableHead>Name</TableHead>
                   <TableHead>Adresse</TableHead>
+                  <TableHead className="text-center">Menge</TableHead>
+                  <TableHead className="text-right">Betrag</TableHead>
                   <TableHead className="text-right">Status</TableHead>
                   <TableHead className="w-10"></TableHead>
                 </TableRow>
@@ -236,6 +240,8 @@ const AdminDashboard = () => {
                     <TableCell className="text-sm text-muted-foreground">
                       {order.strasse} {order.hausnummer}, {order.plz} {order.stadt}
                     </TableCell>
+                    <TableCell className="text-center">{order.quantity} Glas</TableCell>
+                    <TableCell className="text-right font-medium">{order.total.toFixed(2)} €</TableCell>
                     <TableCell className="text-right">
                       <Select value={order.status} onValueChange={(val) => updateStatus(order.id, val)}>
                         <SelectTrigger className={`w-[160px] ml-auto text-xs font-medium rounded-full ${STATUS_COLORS[order.status] || ""}`}>
