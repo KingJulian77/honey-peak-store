@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 
-const TXT = "ABBCCC.";
+const TXT = "";
 
 const blocks = [
   { title: "Kurze Wege, frischer Honig." },
