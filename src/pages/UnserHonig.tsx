@@ -1,11 +1,60 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Placeholder from "@/components/Placeholder";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 
 const TXT = "";
 
 const UnserHonig = () => {
+  const [stock, setStock] = useState<number | null>(null);
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistMsg, setWaitlistMsg] = useState("");
+  const [waitlistError, setWaitlistError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    const fetchStock = async () => {
+      const { data } = await supabase
+        .from("inventory")
+        .select("stock")
+        .eq("product_name", "honig")
+        .single();
+      if (data) setStock(data.stock);
+    };
+    fetchStock();
+  }, []);
+
+  const isSoldOut = stock !== null && stock <= 0;
+
+  const handleWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setWaitlistMsg("");
+    setWaitlistError("");
+
+    if (!waitlistEmail.trim()) return;
+
+    setSubmitting(true);
+    const { error } = await supabase
+      .from("waitlist")
+      .insert({ email: waitlistEmail.trim().toLowerCase() });
+
+    setSubmitting(false);
+
+    if (error) {
+      if (error.code === "23505") {
+        setWaitlistError("Diese E-Mail-Adresse ist bereits eingetragen.");
+      } else {
+        setWaitlistError("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+      }
+      return;
+    }
+    setWaitlistMsg("Super! Wir melden uns, sobald unser Honig wieder verfügbar ist. 🍯");
+    setWaitlistEmail("");
+  };
+
   return (
     <Layout>
       <section className="container-narrow py-12 md:py-20">
@@ -33,8 +82,50 @@ const UnserHonig = () => {
 
             <div className="mt-8 flex items-center gap-6">
               <span className="text-3xl font-serif text-foreground">12,90 €</span>
-              <Button variant="honey" size="xl" asChild><Link to="/bestellen">Jetzt kaufen →</Link></Button>
+              {isSoldOut ? (
+                <Button variant="honey" size="xl" disabled className="opacity-60 cursor-not-allowed">
+                  Ausverkauft
+                </Button>
+              ) : (
+                <Button variant="honey" size="xl" asChild>
+                  <Link to="/bestellen">Jetzt kaufen →</Link>
+                </Button>
+              )}
             </div>
+
+            {isSoldOut && (
+              <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+                {waitlistMsg ? (
+                  <p className="text-sm text-foreground font-medium">{waitlistMsg}</p>
+                ) : (
+                  <>
+                    <p className="text-sm text-foreground mb-3">
+                      Unser Honig ist gerade ausverkauft. Gib deine E-Mail-Adresse an und wir
+                      benachrichtigen dich, sobald neuer Honig verfügbar ist!
+                    </p>
+                    <form onSubmit={handleWaitlist} className="flex gap-2">
+                      <Input
+                        type="email"
+                        placeholder="deine@email.de"
+                        value={waitlistEmail}
+                        onChange={(e) => {
+                          setWaitlistEmail(e.target.value);
+                          setWaitlistError("");
+                        }}
+                        className="rounded-xl flex-1"
+                        required
+                      />
+                      <Button type="submit" variant="honey" disabled={submitting}>
+                        {submitting ? "..." : "Benachrichtigen →"}
+                      </Button>
+                    </form>
+                    {waitlistError && (
+                      <p className="text-sm text-destructive mt-2">{waitlistError}</p>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
