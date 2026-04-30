@@ -35,6 +35,11 @@ const Footer = () => {
               Benachrichtigen →
             </Button>
           </form>
+          <div className="mt-4">
+            <Link to="/admin-login" className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+              Admin Anmeldung
+            </Link>
+          </div>
         </div>
 
         <div>
