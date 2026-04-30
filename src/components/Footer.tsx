@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="text-lg mb-4">Imkerei Goldwiese</h4>
+          <h4 className="text-lg mb-4">Honig aus Hochkamp</h4>
           <ul className="space-y-2 text-sm text-foreground/80">
             <li><Link to="/" className="hover:text-primary">Startseite</Link></li>
             <li><Link to="/unser-honig" className="hover:text-primary">Unser Honig</Link></li>
@@ -51,7 +51,7 @@ const Footer = () => {
 
       <div className="border-t border-border">
         <div className="container-narrow py-6 text-center text-xs text-muted-foreground">
-          © 2025 Imkerei Goldwiese. Alle Rechte vorbehalten.
+          © 2025 Honig aus Hochkamp. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

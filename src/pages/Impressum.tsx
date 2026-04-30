@@ -19,15 +19,15 @@ const Impressum = () => {
         </div>
 
         <Section title="Angaben gemäß § 5 TMG">
-          <p>Imkerei Goldwiese</p>
+          <p>Honig aus Hochkamp</p>
           <p>Inhaber: ABCABCABC</p>
-          <p>Goldwiesenweg 7</p>
-          <p>12345 Honigtal</p>
+          <p>Hochkamper Weg 7</p>
+          <p>12345 Hochkamp</p>
         </Section>
 
         <Section title="Kontakt">
           <p>Telefon: +49 (0) 123 456 789</p>
-          <p>E-Mail: hallo@goldwiese.de</p>
+          <p>E-Mail: hallo@honig-aus-hochkamp.de</p>
         </Section>
 
         <Section title="Umsatzsteuer-ID">
@@ -35,7 +35,7 @@ const Impressum = () => {
         </Section>
 
         <Section title="Verantwortlich für den Inhalt">
-          <p>ABCABCABC, Goldwiesenweg 7, 12345 Honigtal</p>
+          <p>ABCABCABC, Hochkamper Weg 7, 12345 Hochkamp</p>
         </Section>
 
         <Section title="Streitschlichtung">

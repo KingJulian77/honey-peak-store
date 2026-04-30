@@ -26,7 +26,7 @@ const UnserHonig = () => {
               Sortenrein · 500g
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl">
-              Goldwiesen-<span className="italic">Honig</span>
+              Hochkamp-<span className="italic">Honig</span>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">{TXT}</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">{TXT.slice(0, 140)}</p>
