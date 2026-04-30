@@ -32,6 +32,42 @@ export type Database = {
         }
         Relationships: []
       }
+      orders: {
+        Row: {
+          created_at: string
+          hausnummer: string
+          id: string
+          nachname: string
+          plz: string
+          stadt: string
+          status: Database["public"]["Enums"]["order_status"]
+          strasse: string
+          vorname: string
+        }
+        Insert: {
+          created_at?: string
+          hausnummer: string
+          id?: string
+          nachname: string
+          plz: string
+          stadt: string
+          status?: Database["public"]["Enums"]["order_status"]
+          strasse: string
+          vorname: string
+        }
+        Update: {
+          created_at?: string
+          hausnummer?: string
+          id?: string
+          nachname?: string
+          plz?: string
+          stadt?: string
+          status?: Database["public"]["Enums"]["order_status"]
+          strasse?: string
+          vorname?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -65,6 +101,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user"
+      order_status: "offen" | "geld_erhalten" | "bearbeitung" | "fertig"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -193,6 +230,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
+      order_status: ["offen", "geld_erhalten", "bearbeitung", "fertig"],
     },
   },
 } as const
