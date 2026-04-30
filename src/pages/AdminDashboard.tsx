@@ -240,8 +240,8 @@ const AdminDashboard = () => {
                     <TableCell className="text-sm text-muted-foreground">
                       {order.strasse} {order.hausnummer}, {order.plz} {order.stadt}
                     </TableCell>
-                    <TableCell className="text-center">{(order as any).quantity} Glas</TableCell>
-                    <TableCell className="text-right font-medium">{((order as any).total as number).toFixed(2)} €</TableCell>
+                    <TableCell className="text-center">{order.quantity} Glas</TableCell>
+                    <TableCell className="text-right font-medium">{order.total.toFixed(2)} €</TableCell>
                     <TableCell className="text-right">
                       <Select value={order.status} onValueChange={(val) => updateStatus(order.id, val)}>
                         <SelectTrigger className={`w-[160px] ml-auto text-xs font-medium rounded-full ${STATUS_COLORS[order.status] || ""}`}>
