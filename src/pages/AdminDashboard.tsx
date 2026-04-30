@@ -105,6 +105,16 @@ const AdminDashboard = () => {
     );
   };
 
+  const deleteOrder = async (orderId: string) => {
+    const { error } = await supabase.from("orders").delete().eq("id", orderId);
+    if (error) {
+      toast.error("Fehler beim Löschen der Bestellung.");
+      return;
+    }
+    setOrders((prev) => prev.filter((o) => o.id !== orderId));
+    toast.success("Bestellung gelöscht.");
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
