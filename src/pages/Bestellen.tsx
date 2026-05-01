@@ -109,11 +109,17 @@ const Bestellen = () => {
       return;
     }
 
-    // Reduce stock
-    await supabase
-      .from("inventory")
-      .update({ stock: inv.stock - quantity })
-      .eq("product_name", "honig");
+    // Reduce stock atomically via RPC (anon users have no direct UPDATE access)
+    const { error: stockError } = await supabase.rpc("decrement_stock", {
+      product: "honig",
+      amount: quantity,
+    });
+
+    if (stockError) {
+      setSubmitting(false);
+      setError("Der Bestand konnte nicht aktualisiert werden. Bitte versuche es erneut.");
+      return;
+    }
 
     setTotal(orderTotal);
     setSubmitting(false);
